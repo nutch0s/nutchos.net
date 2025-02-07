@@ -7,7 +7,7 @@ async function fetchLeaderboard() {
     }
 
     try {
-        const response = await fetch(`fetch("https://your-app-name.herokuapp.com/leaderboard?trackId=${trackId}")`);
+        const response = await fetch("https://your-app-name.herokuapp.com/leaderboard?trackId=${trackId}");
         
         if (!response.ok) {
             throw new Error("Network response was not ok");
