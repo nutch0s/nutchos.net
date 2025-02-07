@@ -9,7 +9,7 @@ async function fetchLeaderboard() {
 
     try {
         // Make a request to your backend (proxy) with the trackId
-        const response = await fetch(`http://localhost:3000/leaderboard?trackId=${trackId}`);
+       const response = await fetch(`http://localhost:3000/leaderboard?trackId=${trackId}`);
         const data = await response.json();
 
         // Hide loading message and display the table
