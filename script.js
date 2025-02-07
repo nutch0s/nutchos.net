@@ -14,7 +14,7 @@ async function fetchLeaderboard() {
         }
 
         const data = await response.json();
-
+        console.log(data);
         // Hide loading message and display the table
         document.querySelector(".loading").style.display = "none";
         document.querySelector("#leaderboard").style.display = "table";
