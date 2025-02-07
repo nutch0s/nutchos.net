@@ -34,8 +34,8 @@ async function fetchLeaderboard() {
                 const row = document.createElement("tr");
                 row.innerHTML = `
                     <td>${index + 1}</td>
-                    <td>${entry.user || "N/A"}</td>
-                    <td>${entry.score || "N/A"}</td>
+                    <td>${entry.name || "N/A"}</td>  <!-- Use entry.name for the user's name -->
+                    <td>${entry.frames || "N/A"}</td>    <!-- Use entry.frames for the score -->
                 `;
                 tableBody.appendChild(row);
             });
