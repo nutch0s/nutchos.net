@@ -5,15 +5,22 @@ const cors = require("cors");
 const app = express();
 const PORT = 3000;
 
-// Enable CORS to allow requests from the frontend (GitHub Pages)
+// Enable CORS
 app.use(cors());
 
 // Hardcoded userTokenHash for testing
 const USER_TOKEN_HASH = "58de417a96f074e2e74759f1d6444a82e9380e005a428a3061e7ad857c31b583";
 
-// Route to handle leaderboard requests
+// Route for the root path
+app.get("/", (req, res) => {
+    res.send("Welcome to the leaderboard API! Go to /leaderboard to view the leaderboard.");
+});
+
+// Route to fetch leaderboard data
 app.get("/leaderboard", async (req, res) => {
     const trackId = req.query.trackId;  // Get trackId from query parameter
+
+    // If no trackId is provided, return an error
     if (!trackId) {
         return res.status(400).json({ error: "Track ID is required" });
     }
@@ -21,7 +28,6 @@ app.get("/leaderboard", async (req, res) => {
     console.log(`Fetching leaderboard for trackId: ${trackId}`);
 
     try {
-        // Fetch leaderboard data from the external API
         const response = await axios.get("https://vps.kodub.com:43273/leaderboard", {
             headers: {
                 "User-Agent": "Mozilla/5.0",
@@ -50,5 +56,6 @@ app.get("/leaderboard", async (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
+
