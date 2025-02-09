@@ -7,7 +7,7 @@ async function fetchLeaderboard() {
     }
 
     try {
-        const response = await fetch("https://poly-board-api-bed3a0d8395d.herokuapp.com/leaderboard?trackId=${trackId}", { mode: 'no-cors'});
+        const response = await fetch('https://poly-board-api-bed3a0d8395d.herokuapp.com/leaderboard?trackId=${trackId}', { mode: 'no-cors'});
         
         if (!response.ok) {
             throw new Error("Network response was not ok");
